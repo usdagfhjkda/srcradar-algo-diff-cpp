@@ -1,0 +1,27 @@
+# ---- 上游 fork(vendor)目录:不入 git ----
+# 由 install.sh 按 tag pin 拉取
+vendor/rapidfuzz/
+vendor/simdjson/
+
+# ---- 运行时产物 ----
+build/
+bin/algo_diff_cpp
+
+# CI fixture (tests/ci.sh 现场生成)
+tests/fixtures/test_ct_cases.db
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# 编辑器 / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store

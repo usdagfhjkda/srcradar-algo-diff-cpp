@@ -1,0 +1,90 @@
+srcradar-algo-diff-cpp
+Copyright (C) 2026 srcradar contributors
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; version 2 of the License.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+details.
+
+You should have received a copy of the GNU General Public License along with
+this program; if not, write to the Free Software Foundation, Inc., 51 Franklin
+Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+The full text of the GNU General Public License version 2 is distributed with
+this program in the file LICENSE.
+
+================================================================================
+Third-party components
+================================================================================
+
+This product includes software developed by third parties. Their licenses are
+reproduced in full where required; see the "License files" section below.
+
+--------------------------------------------------------------------------------
+sqlmap — dynamic-content detection algorithm
+--------------------------------------------------------------------------------
+
+The anchor-discovery and dynamic-region-removal algorithms in
+src/anchors.cpp (find_anchors / apply_anchors) and the structural-projection
+helpers in src/projection.cpp (html_project / json_project and the tag/cls/id
+token scheme) are derived from sqlmap:
+
+    sqlmap — https://github.com/sqlmapproject/sqlmap
+    Copyright (C) 2006-2026 Bernardo Damele Assumpcao Guimaraes, Miroslav Stampar
+    Licensed under the GNU General Public License version 2
+
+Corresponding upstream functions:
+
+    sqlmap lib/core/common.py :: findDynamicContent()      -> find_anchors()
+    sqlmap lib/core/common.py :: removeDynamicContent()    -> apply_anchors()
+    sqlmap lib/core/common.py :: extractStructuralTokens()  -> html_project()
+    sqlmap lib/core/common.py :: jsonMinimize()             -> json_project()
+
+Because this component is derived from GPL-2.0 licensed code, the whole of
+this program is distributed under the GNU General Public License version 2.
+
+--------------------------------------------------------------------------------
+CPython — difflib.SequenceMatcher
+--------------------------------------------------------------------------------
+
+src/difflib.cpp and src/difflib.hpp are a C++ port of the Python standard
+library module difflib, specifically the class difflib.SequenceMatcher. The
+port reproduces the CPython 3.10 implementation's behaviour so that the
+similarity ratio computed in C++ matches the ratio computed by the Python
+reference implementation.
+
+    CPython — https://www.python.org/
+    Copyright (c) 2001-2026 Python Software Foundation; All Rights Reserved
+    Licensed under the Python Software Foundation License Version 2
+
+The Python Software Foundation License is compatible with the GNU General
+Public License version 2. See https://docs.python.org/3/license.html for the
+full license text.
+
+--------------------------------------------------------------------------------
+BLAKE2b (RFC 7693)
+--------------------------------------------------------------------------------
+
+src/blake2b.cpp and src/blake2b.hpp are an independent implementation of the
+BLAKE2b-64 hash function specified in RFC 7693. RFC 7693 is an informational
+document published by the IETF; the algorithm itself is not subject to
+copyright. No third-party source code was copied.
+
+--------------------------------------------------------------------------------
+License files
+--------------------------------------------------------------------------------
+
+    vendor/rapidfuzz/LICENSE   — rapidfuzz-cpp, MIT License
+                                  Copyright (c) 2020 Max Bachmann
+                                  Copyright (c) 2011 Adam Cohen
+    vendor/simdjson/LICENSE     — simdjson, Apache License 2.0
+                                  Copyright (c) 2017-present simdjson authors
+
+Both vendored components are fetched at build time by install.sh and are not
+redistributed in this repository. Their licenses are MIT and Apache-2.0
+respectively, both of which are compatible with the GNU General Public
+License version 2.
